@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
 
   //   this is the get the value in either true or false in the original state of token
   let isLoggedIn = !!token;
-  console.log("token", token);
+  //console.log("token", token);
   console.log("isLoggedIN ", isLoggedIn);
 
   //   to check whether is loggedIn or not
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
  const userAuthentication = async () =>{
   try {
     setIsLoading(true);
-    const response = await fetch("http://localhost:5000/api/auth/user", {
+    const response = await fetch("http://localhost:5001/api/auth/user", {
       method: "GET",
       headers: {
         Authorization: authorizationToken,
@@ -41,20 +41,22 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
       console.log('user data', data.userData);
       setUser(data.userData);
-      setIsLoading(false);
+      //setIsLoading(false);
     } else {
-      console.error("Error fetching user data:");
-      setIsLoading(false);
+      console.error("Error fetching user data:", response.status, response.statusText);
+      //setIsLoading(false);
     }
   } catch (error) {
-    console.error("error fetching user data");
+    console.error("error fetching user data:", error.message);
+  } finally {
+    setIsLoading(false);
   }
  };
 
  // to fetch the data services from the database
  const getServices = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/data/service",{
+    const response = await fetch("http://localhost:5001/api/data/service",{
       method:"GET",
     });
 
@@ -62,11 +64,13 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
       console.log(data.msg);
       setServices(data.msg);
+    } else{
+      console.error("Error fetching services:", response.status, response.statusText);
     }
   } catch (error) {
-    console.log(`services frontend error: ${error}`);
+    console.error(`services frontend error: ${error.message}`);
   }
- }
+ };
 
 
 useEffect(() =>{
@@ -78,7 +82,7 @@ useEffect(() =>{
 
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services, authorizationToken, isLoading}}>
+    <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services, authorizationToken, isLoading,}}>
       {children}
     </AuthContext.Provider>
   );

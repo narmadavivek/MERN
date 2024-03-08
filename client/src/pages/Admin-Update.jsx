@@ -18,7 +18,7 @@ export const AdminUpdate = () => {
   const getSingleUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/${params.id}`,
+        `http://localhost:5001/api/admin/users/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -26,13 +26,13 @@ export const AdminUpdate = () => {
           },
         }
       );
+
+      
       const data = await response.json();
       console.log(`users single data:  ${data}`);
       setData(data);
 
-      //   if (response.ok) {
-      //     getAllUsersData();
-      //   }
+      
     } catch (error) {
       console.log(error);
     }
@@ -58,7 +58,7 @@ export const AdminUpdate = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/update/${params.id}`,
+        `http://localhost:5001/api/admin/users/update/${params.id}`,
         {
           method: "PATCH",
           headers: {
@@ -67,15 +67,20 @@ export const AdminUpdate = () => {
           },
           body: JSON.stringify(data),
         }
+      
       );
 
-      if (response.ok) {
-        toast.success("Updated successfully");
-      } else {
-        toast.error("Not Updated ");
-      }
+     if(response.ok){ 
+      toast.success("Updated successfully"); 
+    }else{
+      toast.error("Not Updated ");
+    }
+      
+       
+      
     } catch (error) {
       console.log(error);
+     
     }
   };
 
@@ -118,7 +123,7 @@ export const AdminUpdate = () => {
             <div>
               <label htmlFor="phone">Mobile</label>
               <input
-                type="phone"
+                type="tel"
                 name="phone"
                 id="phone"
                 autoComplete="off"
