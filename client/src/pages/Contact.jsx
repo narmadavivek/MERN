@@ -38,7 +38,7 @@ export const Contact = () => {
  const handleContactForm = async (e) => {
   e.preventDefault();
  try {
-  const response = await fetch("http://localhost:5001/api/form/contact",{
+  const response = await fetch("https://mern-1-56w8.onrender.com/api/form/contact",{
     method: "POST",
     headers: {
       "Content-Type":"application/json"

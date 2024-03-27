@@ -1,12 +1,17 @@
-const isAdmin = (req, res, next) => {
-    const { user } = req;
-
-    if (!user || !user.isAdmin) {
-
-      return res.status(403).json({ message: 'Access denied. You do not have admin privileges.' });
+const adminMiddleware = (req, res, next) => {
+   try{
+    //console.log(req.user);
+    const adminRole = req.user.isAdmin;
+    if(!adminRole){
+      return res.status(403).json({ error: "Access denied. User is not an admin."});
     }
-  
-    next();
+    //res.status(200).json({ msg: req.user.isAdmin });
+   next();
+   }catch(error){
+    next(error);
+   }
   };
   
-  module.exports = { isAdmin };
+  module.exports = adminMiddleware
+
+ 
