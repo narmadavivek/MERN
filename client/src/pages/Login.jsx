@@ -4,7 +4,7 @@ import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
 
-const URL = "https://mern-1-56w8.onrender.com/api/auth/login";
+const URL = "http://localhost:5001/api/auth/login";
 
 
 export const Login = () => {
@@ -44,8 +44,8 @@ export const Login = () => {
    if(response.ok){
     //alert('login successfully');
    
-    storeTokenInLS(res_data.token);
-     
+    storeTokenInLS(res_data.token, res_data.user);
+    
     setUser({email:"", password:""});
     toast.success("Login successfully")
     navigate("/");
