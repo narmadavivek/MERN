@@ -1,3 +1,10 @@
+user Login id:
+email Id: parvathi@gmail.com
+password: 1234567890
+Admin Login id:
+email Id: ganesh@gmail.com
+password: 1234567890
+
 ![image](https://github.com/narmadavivek/MERN/assets/145418529/036ec746-4b59-4ee8-9b80-6022f9cf748f)
 ![image](https://github.com/narmadavivek/MERN/assets/145418529/a81d5508-b301-4e4d-bd34-eb16c79ecfd1)
 ![image](https://github.com/narmadavivek/MERN/assets/145418529/34a9cf0f-f7f3-4f46-9e4b-a40be4612d29)
