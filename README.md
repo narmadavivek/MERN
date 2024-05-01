@@ -6,6 +6,7 @@ email Id: parvathi@gmail.com
 
 password: 1234567890
 
+In the below mentioned email ID and password is use to direct to the admin page.
 
 Admin Login id:
 
