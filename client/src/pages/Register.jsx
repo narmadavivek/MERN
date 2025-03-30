@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
-const URL = "http://localhost:5000/api/auth/register";
+const URL = "https://crm-backend-v5st.onrender.com/api/auth/register";
 
 export const Register = () => {
   const [user, setUser] = useState({

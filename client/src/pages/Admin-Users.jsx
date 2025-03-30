@@ -8,7 +8,7 @@ export const AdminUsers = ()=>{
 
   const getAllUsersData = async() => {
   try {
-    const response = await fetch("http://localhost:5000/api/admin/users", {
+    const response = await fetch("https://crm-backend-v5st.onrender.com/api/admin/users", {
       method: "GET",
       headers:{
         Authorization: authorizationToken,
@@ -25,7 +25,7 @@ export const AdminUsers = ()=>{
   // delete the user on delete button
 const deleteUser =async (id)=>{
   try {
-    const response = await fetch(`http://localhost:5000/api/admin/users/delete/${id}`, {
+    const response = await fetch(`https://crm-backend-v5st.onrender.com/api/admin/users/delete/${id}`, {
       method: "DELETE",
       headers:{
         Authorization: authorizationToken,

@@ -38,7 +38,7 @@ export const Contact = () => {
  const handleContactForm = async (e) => {
   e.preventDefault();
  try {
-  const response = await fetch(`http://localhost:5000/api/form/contact`,{
+  const response = await fetch(`https://crm-backend-v5st.onrender.com/api/form/contact`,{
     method: "POST",
     headers: {
       "Content-Type":"application/json"
