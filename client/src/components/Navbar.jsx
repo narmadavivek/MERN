@@ -17,7 +17,7 @@ export const Navbar = () => {
   
   return (
     <>
-    {(user?.isAdmin)? (<><header>
+    {(isLoggedIn && user?.isAdmin) ? (<><header>
         <div className="container">
           <nav>
             <ul>
@@ -80,7 +80,7 @@ export const Navbar = () => {
                 <NavLink to="/contact"> Contact </NavLink>
               </li>
 
-              {isLoggedIn && user?.isAdmin ? (
+              {isLoggedIn ? (
                 <li>
                   <NavLink to="/logout">Logout</NavLink>
                 </li>
