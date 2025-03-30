@@ -8,8 +8,11 @@ import { FaMessage } from "react-icons/fa6";
 
 
 export const Navbar = () => {
-  const { isLoggedIn , user} = useAuth();
+  const { isLoggedIn , user, isLoading} = useAuth();
 
+  if(isLoading){
+    return <div>Loading...</div>
+  }
   
   console.log(user.isAdmin);
 
@@ -17,7 +20,7 @@ export const Navbar = () => {
   
   return (
     <>
-    {(isLoggedIn && user?.isAdmin) ? (<><header>
+    {isLoggedIn && user && user.isAdmin ? (<><header>
         <div className="container">
           <nav>
             <ul>
