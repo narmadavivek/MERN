@@ -9,13 +9,14 @@ const contactRoute = require("./router/contact-router");
 const serviceRoute = require("./router/service-router");
 const adminRoute = require("./router/admin-router");
 
-//let's tackle cors
+
 const corsOptions = {
-  origin: "https://mern-xi-gold.vercel.app/", //true after you deploy
+  origin: "https://mern-xi-gold.vercel.app", //true after you deploy
   methods:"GET, POST, PUT, DELETE, PATCH, HEAD",
   credentials: true,
 };
 app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // Mount the Router: To use the router in your main Express app, you can "mount" it at a specific URL prefix

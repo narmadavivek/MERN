@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
  const userAuthentication = async () =>{
   try {
     setIsLoading(true);
-    const response = await fetch(`https://crm-backend-v5st.onrender.com/api/auth/user`, {
+    const response = await fetch("https://crm-backend-v5st.onrender.com/api/auth/user", {
       method: "GET",
       headers: {  
         Authorization: authorizationToken,
