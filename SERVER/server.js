@@ -11,7 +11,7 @@ const adminRoute = require("./router/admin-router");
 
 //let's tackle cors
 const corsOptions = {
-  origin: "https://mern-xi-gold.vercel.app/", //true after you deploy
+  origin: "https://mern-xi-gold.vercel.app", //true after you deploy
   methods:"GET, POST, PUT, DELETE, PATCH, HEAD",
   credentials: true,
 };
