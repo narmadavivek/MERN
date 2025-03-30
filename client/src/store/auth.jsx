@@ -47,17 +47,10 @@ export const AuthProvider = ({ children }) => {
       //setIsLoading(false);
     } else {
       console.error("Error fetching user data:", response.status, response.statusText);
-      setToken("");
-      localStorage.removeItem("token");
-      setUser(null);
       //setIsLoading(false);
     }
   } catch (error) {
     console.error("error fetching user data:", error.message);
-   // Clear token on error
-   setToken("");
-   localStorage.removeItem("token");
-   setUser(null);
   } finally {
     setIsLoading(false);
   }
