@@ -11,13 +11,13 @@ export const Navbar = () => {
   const { isLoggedIn , user} = useAuth();
 
   
-  console.log(user?.isAdmin);
+  console.log(user.isAdmin);
 
   
   
   return (
     <>
-    {(user.isAdmin)? (<><header>
+    {(user?.isAdmin)? (<><header>
         <div className="container">
           <nav>
             <ul>
@@ -80,7 +80,7 @@ export const Navbar = () => {
                 <NavLink to="/contact"> Contact </NavLink>
               </li>
 
-              {isLoggedIn ? (
+              {isLoggedIn && user?.isAdmin ? (
                 <li>
                   <NavLink to="/logout">Logout</NavLink>
                 </li>
