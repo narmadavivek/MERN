@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const dbUrl = "mongodb+srv://mern:hvCY42SLqCzgV8mi@cluster0.e3stebm.mongodb.net/mern_admin?retryWrites=true&w=majority";
+const dbUrl = "mongodb+srv://mern:GPwttUPc5x96mYV3@cluster0.e3stebm.mongodb.net/mern_admin?retryWrites=true&w=majority";
 
 const connectionParams={
     useNewUrlParser: true,

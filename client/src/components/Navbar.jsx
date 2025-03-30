@@ -1,12 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../store/auth";
 import { FaUser, FaHome, FaRegListAlt } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 
+
+
+
 export const Navbar = () => {
   const { isLoggedIn , user} = useAuth();
+
+  
   console.log(user.isAdmin);
+
+  
+  
   return (
     <>
     {(user.isAdmin)? (<><header>

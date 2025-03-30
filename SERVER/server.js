@@ -11,7 +11,7 @@ const adminRoute = require("./router/admin-router");
 
 //let's tackle cors
 const corsOptions = {
-  origin: true ,
+  origin: "http://localhost:5173", //true after you deploy
   methods:"GET, POST, PUT, DELETE, PATCH, HEAD",
   credentials: true,
 };
@@ -27,7 +27,8 @@ app.use("/api/admin", adminRoute);
 
 app.use(errorMiddleware);
 
-const PORT = 5001;
+
+const PORT = 5000;
 connectDb().then(() => {
   app.listen(PORT, () => {
     console.log(`server is running at port: ${PORT}`);

@@ -4,9 +4,9 @@ import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
 
-const URL = "https://mern-1-56w8.onrender.com/api/auth/login";
+const URL = "http://localhost:5000/api/auth/login";
 
-//https://mern-1-56w8.onrender.com/
+
 export const Login = () => {
   const [user, setUser] = useState({
     username: "",

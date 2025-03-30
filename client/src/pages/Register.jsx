@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
-const URL = "https://mern-1-56w8.onrender.com/api/auth/register";
-
+const URL = "http://localhost:5000/api/auth/register";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -13,7 +12,6 @@ export const Register = () => {
     phone: "",
     password: "",
   });
-
   
   const navigate = useNavigate();
 
@@ -44,16 +42,17 @@ export const Register = () => {
         },
         body: JSON.stringify(user),
       });
+
       const res_data = await response.json();
         console.log("res from server", res_data.extraDetails);
+      
 
       if (response.ok) {
         
         storeTokenInLS(res_data.token);
-        
         setUser({ username: "", email: "", phone: "", password: "" });
         toast.success("Registration successful");
-        navigate("/");
+        navigate("/login");
       } else{
         toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
       }

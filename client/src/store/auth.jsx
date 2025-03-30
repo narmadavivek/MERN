@@ -34,11 +34,11 @@ export const AuthProvider = ({ children }) => {
  const userAuthentication = async () =>{
   try {
     setIsLoading(true);
-    const response = await fetch("https://mern-1-56w8.onrender.com/api/auth/user", {
+    const response = await fetch(`http://localhost:5000/api/auth/user`, {
       method: "GET",
-      headers: {
+      headers: {  
         Authorization: authorizationToken,
-      },
+            },
     });
     if(response.ok){
       const data = await response.json();
@@ -47,6 +47,7 @@ export const AuthProvider = ({ children }) => {
       //setIsLoading(false);
     } else {
       console.error("Error fetching user data:", response.status, response.statusText);
+      
       //setIsLoading(false);
     }
   } catch (error) {
@@ -59,7 +60,7 @@ export const AuthProvider = ({ children }) => {
  // to fetch the data services from the database
  const getServices = async () => {
   try {
-    const response = await fetch("https://mern-1-56w8.onrender.com/api/data/service",{
+    const response = await fetch(`http://localhost:5000/api/data/service`,{
       method:"GET",
     });
 
