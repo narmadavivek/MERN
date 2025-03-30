@@ -11,7 +11,7 @@ export const Navbar = () => {
   const { isLoggedIn , user} = useAuth();
 
   
-  console.log(user.isAdmin);
+  console.log(user?.isAdmin);
 
   
   
